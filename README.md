@@ -1,14 +1,12 @@
-# 🛣️ AI-Powered Highway Toll & Transit Pass System
+# AI-Powered Highway Toll & Transit Pass System
 
 > **Module:** IT6070 – Emerging Topics in Information Technology  
-> **Course:** Postgraduate Individual Project (4 Weeks)  
 > **Author:** Pramuditha Fernando  
-> **Target Industry Professional:** Mr. Nimal Jayasinghe (Toll Operations Supervisor, RDA Expressway Operation Maintenance & Management Division, Sri Lanka)  
-> **Status:** ✅ Weeks 1 to 4 Complete & Dockerized
+> **Target Industry Professional:** (Toll Operations Supervisor, RDA Expressway Operation Maintenance & Management Division, Sri Lanka)
 
 ---
 
-## 📌 Executive Summary
+## Executive Summary
 
 Manual ticket dispensing and cash toll handling at Sri Lankan expressway interchanges (e.g., Kottawa on E01, Kadawatha on E02) cause severe peak-hour queueing delays (14–24 seconds per vehicle, tailbacks up to 1.5 km). Over 62% of peak-hour users are daily repetitive commuters traveling identical routes.
 
@@ -20,18 +18,7 @@ This project delivers an **AI-Powered Highway Toll & Transit Pass System**:
 
 ---
 
-## 📅 4-Week Milestone Delivery Roadmap
-
-| Milestone | Date | Focus Area | Deliverables & Verification | Status |
-|:---:|:---:|---|---|:---:|
-| **Week 1** | 26 Sep | **Professional & Problem** | Stakeholder profile (Mr. Nimal Jayasinghe, RDA), bottleneck analysis, commuter user stories, quantitative baseline KPIs. ([Details](docs/WEEK1_PROFESSIONAL_AND_PROBLEM.md)) | ✅ **Complete** |
-| **Week 2** | 03 Oct | **Design & Feasibility** | System topology, SQLite relational schema, Edge ANPR pipeline design, Confidence Gate, Feasibility (Edge vs Cloud, ANPR vs RFID). ([Details](docs/WEEK2_DESIGN_AND_FEASIBILITY.md)) | ✅ **Complete** |
-| **Week 3** | 10 Oct | **Implementation & Testing** | Interactive 4-tab Streamlit app, 3 distinct test scenarios (TC1/TC2/TC3), QR fallback, 32-case automated pytest suite. ([Details](docs/WEEK3_IMPLEMENTATION_AND_TESTING.md)) | ✅ **Complete** |
-| **Week 4** | 17 Oct | **Final Readiness & Docker** | Production Dockerfile, Docker Compose stack, Nginx reverse proxy, persistent named volumes, runbook & interview defense guide. ([Details](docs/WEEK4_FINAL_READINESS.md)) | ✅ **Complete** |
-
----
-
-## 🏛️ System Architecture
+## System Architecture
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -177,19 +164,19 @@ These are demonstration records and are not credentials for a real toll account.
 
 ---
 
-## 🧪 Interactive Test Scenarios
+## Interactive Test Scenarios
 
 The ANPR Terminal includes 3 pre-configured vehicle scenarios aligned with the project milestones:
 
 | Scenario | Plate | Commuter | Expected Pipeline Outcome |
 |---|---|---|---|
-| **TC1: Valid Active Pass** | `WP-CAB-1234` | Nimal Jayasinghe | ✅ Confidence $94\%$ $\rightarrow$ Barrier Opens $\rightarrow$ Trip balance decrements ($14 \rightarrow 13$) $\rightarrow$ Audit logged |
-| **TC2: Expired Subscription** | `SP-WP-5678` | Kumari Perera | ❌ Confidence $91\%$ $\rightarrow$ Barrier Holds Closed $\rightarrow$ "Pass Expired" warning $\rightarrow$ Balance unchanged |
-| **TC3: Obscured / Weather Glare** | Unreadable | Commuter | ⚠️ Confidence $54\%$ (<85%) $\rightarrow$ Barrier Holds Closed $\rightarrow$ Dynamic QR Fallback screen triggered |
+| **TC1: Valid Active Pass** | `WP-CAB-1234` | Nimal Jayasinghe | Confidence $94\%$ $\rightarrow$ Barrier Opens $\rightarrow$ Trip balance decrements ($14 \rightarrow 13$) $\rightarrow$ Audit logged |
+| **TC2: Expired Subscription** | `SP-WP-5678` | Kumari Perera | Confidence $91\%$ $\rightarrow$ Barrier Holds Closed $\rightarrow$ "Pass Expired" warning $\rightarrow$ Balance unchanged |
+| **TC3: Obscured / Weather Glare** | Unreadable | Commuter | Confidence $54\%$ (<85%) $\rightarrow$ Barrier Holds Closed $\rightarrow$ Dynamic QR Fallback screen triggered |
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 ├── app.py                    # Complete 4-tab Streamlit application
@@ -201,16 +188,10 @@ The ANPR Terminal includes 3 pre-configured vehicle scenarios aligned with the p
 ├── tests/
 │   └── test_app.py           # 32 automated unit & integration tests
 ├── test_images/              # Bundled test vehicles for immediate demonstration
-├── docs/                     # Milestone deliverables:
-│   ├── WEEK1_PROFESSIONAL_AND_PROBLEM.md
-│   ├── WEEK2_DESIGN_AND_FEASIBILITY.md
-│   ├── WEEK3_IMPLEMENTATION_AND_TESTING.md
-│   └── WEEK4_FINAL_READINESS.md
-├── TECHNICAL_SUMMARY.md      # Architectural and technical summary dossier
 └── logs/                     # Application logs and backup storage
 ```
 
 ---
 
-## ⚖️ License & Academic Integrity
+## License & Academic Integrity
 Developed as an individual postgraduate coursework submission for **IT6070: Emerging Topics in Information Technology**. All rights reserved.
